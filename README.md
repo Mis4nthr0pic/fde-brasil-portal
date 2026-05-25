@@ -4,25 +4,22 @@ Portal oficial da primeira comunidade em português para **Forward Deployed Engi
 
 **Frase guia:** Sem firula. Mais execução.
 
-**Repositório:** [github.com/Mis4anthr0pic/FDE-brasil-website](https://github.com/Mis4anthr0pic/FDE-brasil-website)
+**Repositório (ativo):** [github.com/Mis4anthr0pic/fde-brasil-portal](https://github.com/Mis4anthr0pic/fde-brasil-portal)
 
-## Git (primeiro push)
+> Se `FDE-brasil-website` der *Repository not found*, use `fde-brasil-portal` abaixo. O nome `FDE-brasil-website` pode estar reservado por um repo vazio quebrado na conta — apague em [Settings → Repositories](https://github.com/settings/repositories) e renomeie o portal depois.
 
-Se o repositório no GitHub ainda estiver vazio:
+## Git (push)
 
 ```bash
-git init
-git add .
-git commit -m "Initial commit: FDE Brasil MVP portal"
-git branch -M main
-git remote add origin git@github.com:Mis4anthr0pic/FDE-brasil-website.git
+gh auth setup-git
+git remote set-url origin https://github.com/Mis4anthr0pic/fde-brasil-portal.git
 git push -u origin main
 ```
 
-Se `origin` já existir, só ajuste a URL e envie:
+SSH (se sua chave estiver no GitHub):
 
 ```bash
-git remote set-url origin git@github.com:Mis4anthr0pic/FDE-brasil-website.git
+git remote set-url origin git@github.com:Mis4anthr0pic/fde-brasil-portal.git
 git push -u origin main
 ```
 
