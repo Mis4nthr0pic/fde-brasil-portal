@@ -1,0 +1,72 @@
+// FDE Brasil — Prisma schema (prepare for Neon/Supabase)
+// Run: npx prisma generate && npx prisma db push (after DATABASE_URL is set)
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Application {
+  id               String   @id @default(cuid())
+  name             String
+  email            String
+  linkedin         String
+  portfolio        String
+  location         String
+  currentRole      String   @map("current_role")
+  currentCompany   String?  @map("current_company")
+  englishLevel     String   @map("english_level")
+  mainInterest     String   @map("main_interest")
+  seekingRemote    Boolean  @map("seeking_remote")
+  hasClientExperience Boolean @map("has_client_experience")
+  hasDoneDemo      Boolean  @map("has_done_demo")
+  hasAiExperience  Boolean  @map("has_ai_experience")
+  bestProjectUrl   String   @map("best_project_url")
+  readinessLevel   String?  @map("readiness_level")
+  readinessScore   Int?     @map("readiness_score")
+  motivation       String
+  status           ApplicationStatus @default(PENDING)
+  createdAt        DateTime @default(now()) @map("created_at")
+  updatedAt        DateTime @updatedAt @map("updated_at")
+
+  @@map("applications")
+}
+
+enum ApplicationStatus {
+  PENDING
+  REVIEWING
+  ACCEPTED
+  WAITLIST
+  REJECTED
+}
+
+model NewsletterSubscriber {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  source    String   @default("website")
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@map("newsletter_subscribers")
+}
+
+// TODO: Member — sync with Clerk userId when auth ships
+model Member {
+  id        String   @id @default(cuid())
+  clerkId   String?  @unique @map("clerk_id")
+  email     String   @unique
+  name      String?
+  tier      MemberTier @default(FREE)
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@map("members")
+}
+
+enum MemberTier {
+  FREE
+  CORE
+  VIP
+}
