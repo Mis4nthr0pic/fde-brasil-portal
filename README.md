@@ -4,6 +4,28 @@ Portal oficial da primeira comunidade em português para **Forward Deployed Engi
 
 **Frase guia:** Sem firula. Mais execução.
 
+**Repositório:** [github.com/Mis4anthr0pic/FDE-brasil-website](https://github.com/Mis4anthr0pic/FDE-brasil-website)
+
+## Git (primeiro push)
+
+Se o repositório no GitHub ainda estiver vazio:
+
+```bash
+git init
+git add .
+git commit -m "Initial commit: FDE Brasil MVP portal"
+git branch -M main
+git remote add origin git@github.com:Mis4anthr0pic/FDE-brasil-website.git
+git push -u origin main
+```
+
+Se `origin` já existir, só ajuste a URL e envie:
+
+```bash
+git remote set-url origin git@github.com:Mis4anthr0pic/FDE-brasil-website.git
+git push -u origin main
+```
+
 ## Stack
 
 - Next.js 15 (App Router)
@@ -16,7 +38,6 @@ Portal oficial da primeira comunidade em português para **Forward Deployed Engi
 ## Rodar localmente
 
 ```bash
-cd /Users/alex/Projects/FDEBRASIL
 npm install
 npm run dev
 ```
